@@ -24,8 +24,8 @@ This project classifies architectural styles from images using classical ML, CNN
 - `results/`: Plots, metrics, and outputs
 
 ## 👨‍💻 Team
-- Seif (Team Lead)
-- [Other team members]
+- Seif 
+- Omar Nasser
 
 ## 🚀 How to Run
 ```bash
