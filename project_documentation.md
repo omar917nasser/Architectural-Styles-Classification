@@ -27,8 +27,7 @@ This project investigates and implements various machine learning and deep learn
 - [Results](#results)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Team Meambers](#team-meambers)
 
 ## Project Objective
 
