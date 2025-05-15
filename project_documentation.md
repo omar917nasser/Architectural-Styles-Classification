@@ -202,19 +202,7 @@ Execute the Jupyter notebooks sequentially to proceed through the project workfl
 
 Each notebook contains detailed steps and code within its cells, which can be executed in order.
 
-## Contributing
+## Team Members
 
-Contributions to this project are welcome! If you have suggestions for improvements, new model implementations, or bug fixes, please feel free to:
-1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/your-feature`).
-3.  Make your changes and commit them (`git commit -m 'Add your feature'`).
-4.  Push to the branch (`git push origin feature/your-feature`).
-5.  Open a Pull Request detailing your changes.
-
-## License
-
-[Include information about the project's license here. For example, if it's an MIT license, you would add a section like:
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-If you haven't chosen a license yet, consider adding one. A good resource is [Choose a License](https://choosealicense.com/).]
+- Omar Nasser: [https://github.com/omar917nasser](https://github.com/omar917nasser)
+- Seif Eldin Omar: [https://github.com/Seif-Eldin-Omar](https://github.com/Seif-Eldin-Omar)
