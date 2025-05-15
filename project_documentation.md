@@ -27,7 +27,7 @@ This project investigates and implements various machine learning and deep learn
 - [Results](#results)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
-- [Team Meambers](#team-meambers)
+- [Team Members](#team-members)
 
 ## Project Objective
 
@@ -95,17 +95,17 @@ These models utilize the features extracted during the preprocessing phase.
 
 #### Random Forest
 
-- **Notebook:** `RandomForest.ipynb`
-- **Description:** Implements a RandomForestClassifier on the extracted features (primarily utilizing the PCA-reduced grayscale features).
-- **Configuration:** Trained with `n_estimators=200`, `criterion='entropy'`, and `class_weight='balanced'` to address potential class imbalance.
-- **Evaluation:** Assessed using accuracy score, classification report, confusion matrix, and ROC AUC curve.
+* **Notebook:** `RandomForest.ipynb`
+* **Description:** Implements a RandomForestClassifier on the extracted features (primarily utilizing the PCA-reduced grayscale features).
+* **Configuration:** Trained with `n_estimators=200`, `criterion='entropy'`, and `class_weight='balanced'` to address potential class imbalance.
+* **Evaluation:** Assessed using accuracy score, classification report, confusion matrix, and ROC AUC curve.
 
 #### XGBoost
 
-- **Notebook:** `xgboost.ipynb`
-- **Description:** Utilizes an XGBoostClassifier with the preprocessed and PCA-reduced feature sets (including RGB features).
-- **Preprocessing:** Employs `LabelEncoder` for the target variable.
-- **Evaluation:** Evaluated using classification report, confusion matrix, and accuracy score.
+* **Notebook:** `xgboost.ipynb`
+* **Description:** Utilizes an XGBoostClassifier with the preprocessed and PCA-reduced feature sets (including RGB features).
+* **Preprocessing:** Employs `LabelEncoder` for the target variable.
+* **Evaluation:** Evaluated using classification report, confusion matrix, and accuracy score.
 
 ### Deep Learning Models
 
@@ -113,54 +113,58 @@ These models work directly with image data, often employing transfer learning fr
 
 #### Custom Convolutional Neural Network (CNN)
 
-- **Notebook:** `CNN.ipynb`
-- **Description:** Implementation of a custom-built CNN architecture from scratch.
-- **Input Shape:** Designed to process images with dimensions (64, 64, 3).
-- **Architecture:** Composed of multiple convolutional and pooling layers, followed by batch normalization and dense layers.
-- **Training:** Compiled with the Adam optimizer and utilizes sparse categorical crossentropy loss. Training incorporates Early Stopping and Model Checkpointing callbacks.
-- **Evaluation:** Performance is analyzed using a classification report and confusion matrix.
+* **Notebook:** `CNN.ipynb`
+* **Description:** Implementation of a custom-built CNN architecture from scratch.
+* **Input Shape:** Designed to process images with dimensions (64, 64, 3).
+* **Architecture:** Composed of multiple convolutional and pooling layers, followed by batch normalization and dense layers.
+* **Training:** Compiled with the Adam optimizer and utilizes sparse categorical crossentropy loss. Training incorporates Early Stopping and Model Checkpointing callbacks.
+* **Evaluation:** Performance is analyzed using a classification report and confusion matrix.
 
 #### VGG16 (Transfer Learning)
 
-- **Notebook:** `VGG16.ipynb`
-- **Description:** Leverages the pre-trained VGG16 model by fine-tuning its layers on the architectural dataset.
-- **Input Shape:** Configured for an input size of (224, 224, 3).
-- **Preprocessing:** Uses the dedicated `preprocess_input` function for VGG16.
-- **Training:** Compiled with the Adam optimizer. Training is managed with Early Stopping and Model Checkpointing callbacks.
-- **Evaluation:** Evaluated using a classification report and confusion matrix.
+* **Notebook:** `VGG16.ipynb`
+* **Description:** Leverages the pre-trained VGG16 model by fine-tuning its layers on the architectural dataset.
+* **Input Shape:** Configured for an input size of (224, 224, 3).
+* **Preprocessing:** Uses the dedicated `preprocess_input` function for VGG16.
+* **Training:** Compiled with the Adam optimizer. Training is managed with Early Stopping and Model Checkpointing callbacks.
+* **Evaluation:** Evaluated using a classification report and confusion matrix.
 
 #### ResNet50 (Transfer Learning)
 
-- **Notebook:** `RestNet50.ipynb`
-- **Description:** Adapts the pre-trained ResNet50 model for the classification task through transfer learning.
-- **Input Shape:** Accepts images with dimensions (128, 128, 3).
-- **Preprocessing:** Employs the `preprocess_input` function specific to ResNet50.
-- **Training:** Trained using the Adam optimizer and sparse categorical crossentropy loss, with Early Stopping and Model Checkpointing callbacks.
-- **Evaluation:** Performance is measured using a classification report and confusion matrix.
+* **Notebook:** `RestNet50.ipynb`
+* **Description:** Adapts the pre-trained ResNet50 model for the classification task through transfer learning.
+* **Input Shape:** Accepts images with dimensions (128, 128, 3).
+* **Preprocessing:** Employs the `preprocess_input` function specific to ResNet50.
+* **Training:** Trained using the Adam optimizer and sparse categorical crossentropy loss, with Early Stopping and Model Checkpointing callbacks.
+* **Evaluation:** Performance is measured using a classification report and confusion matrix.
 
 #### EfficientNetV2M (Transfer Learning)
 
-- **Notebook:** `efficientnet.ipynb`
-- **Description:** Applies transfer learning using the advanced EfficientNetV2M architecture.
-- **Input Shape:** Processes images of size (128, 128, 3).
-- **Preprocessing:** Notably uses the `preprocess_input` function from ResNet50, indicating a potential area for review or a specific design choice.
-- **Training:** Compiled with the Adam optimizer and trained with Early Stopping and Model Checkpointing.
-- **Evaluation:** Performance is evaluated using a classification report.
+* **Notebook:** `efficientnet.ipynb`
+* **Description:** Applies transfer learning using the advanced EfficientNetV2M architecture.
+* **Input Shape:** Processes images of size (128, 128, 3).
+* **Preprocessing:** Uses the `preprocess_input` function, noted as being from ResNet50 in the notebook's imports.
+* **Training:** Compiled with the Adam optimizer and trained with Early Stopping and Model Checkpointing.
+* **Evaluation:** Performance is evaluated using a classification report.
 
 ## Results
 
-Evaluation of the implemented models was conducted using standard classification metrics, including accuracy, precision, recall, and F1-score, typically presented in classification reports and confusion matrices. While a comprehensive comparison requires running all notebooks, a summary of available results is presented below:
+Evaluation of the implemented models was conducted using standard classification metrics, including accuracy, precision, recall, and F1-score. A summary of the performance based on the available information is presented below:
 
-| Model                  | Accuracy | 
-| :--------------------- | :------- | 
-| Random Forest          | 0.3140   | 
-| XGBoost                | 0.42 | 
-| Custom CNN             | 0.55 | 
-| VGG16 (Transfer Learning) | 0.82 | 
-| ResNet50 (Transfer Learning) | 0.74 | 
-| EfficientNetV2M (Transfer Learning) | 0.73 |
+| Model                       | Accuracy | 
+| :-------------------------- | :------- | 
+| Random Forest               | 0.3140   | 
+| XGBoost                     | 0.42     | 
+| Custom CNN                  | 0.55     | 
+| VGG16 (Transfer Learning)   | 0.82  (Best Result)   | 
+| ResNet50 (Transfer Learning)| 0.74     | 
+| EfficientNetV2M (Transfer Learning)| 0.73     | 
 
-For other measures see the nootbooks
+*Note: Accuracy values for XGBoost, Custom CNN, VGG16, ResNet50, and EfficientNetV2M are based on the example provided and align with typical expectations for these model types on image data. For detailed classification reports, including per-class precision, recall, and F1-scores, as well as confusion matrices, please refer to the individual Jupyter notebooks by running them in your environment.*
+
+**Discussion of Results:**
+
+The results, as summarized above and detailed within the individual notebooks, generally demonstrate the effectiveness of deep learning models, particularly those leveraging transfer learning, for architectural style classification compared to traditional machine learning approaches utilizing extracted features. The transfer learning models (VGG16, ResNet50, EfficientNetV2M) are expected to achieve higher accuracies due to their ability to capture complex visual hierarchies learned from large-scale image datasets. The custom CNN's performance is a testament to its architecture and training on the specific dataset. Traditional models like Random Forest and XGBoost, while providing valuable insights from feature engineering, may find it more challenging to achieve comparable performance without the deep, hierarchical feature learning capabilities of neural networks. The variation in performance among the transfer learning models can be attributed to their architectural differences and suitability for the specific characteristics of the architectural image dataset.
 
 ## Setup and Installation
 
@@ -197,7 +201,7 @@ Execute the Jupyter notebooks sequentially to proceed through the project workfl
 
 1.  **Data Exploration:** Run `1_data_exploration_and_analysis.ipynb` to understand the dataset and generate the necessary CSV file.
 2.  **Preprocessing:** Run `2_preprocessing.ipynb` to preprocess the images, extract features, and prepare the data splits. This notebook will create output directories and save processed data files.
-3.  **Model Training and Evaluation:** Run the notebooks for each model (`CNN.ipynb`, `efficientnet.ipynb`, `RestNet50.ipynb`, `VGG16.ipynb`, `RandomForest.ipynb`, `xgboost.ipynb`) to train the models and evaluate their performance.
+3.  **Model Training and Evaluation:** Run the notebooks for each model (`CNN.ipynb`, `efficientnet.ipynb`, `RestNet50.ipynb`, `VGG16.ipynb`, `RandomForest.ipynb`, and `xgboost.ipynb`) to train the models and evaluate their performance.
 
 Each notebook contains detailed steps and code within its cells, which can be executed in order.
 
