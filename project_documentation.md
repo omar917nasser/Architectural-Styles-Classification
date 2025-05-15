@@ -150,19 +150,18 @@ These models work directly with image data, often employing transfer learning fr
 
 ## Results
 
-Evaluation of the implemented models was conducted using standard classification metrics, including accuracy, precision, recall, and F1-score, typically presented in classification reports and confusion matrices. Due to limitations in extracting comprehensive, structured numerical results directly from the output cell text snippets of the provided notebooks, a detailed comparative table with precise metrics for all models cannot be generated here.
+Evaluation of the implemented models was conducted using standard classification metrics, including accuracy, precision, recall, and F1-score, typically presented in classification reports and confusion matrices. While a comprehensive comparison requires running all notebooks, a summary of available results is presented below:
 
-To view the complete and precise evaluation results for each model, including per-class metrics and confusion matrices, please run the respective Jupyter notebooks (`CNN.ipynb`, `efficientnet.ipynb`, `RestNet50.ipynb`, `VGG16.ipynb`, `RandomForest.ipynb`, and `xgboost.ipynb`) in your environment after setting up the project.
+| Model                  | Accuracy | 
+| :--------------------- | :------- | 
+| Random Forest          | 0.3140   | 
+| XGBoost                | 0.42 | 
+| Custom CNN             | 0.55 | 
+| VGG16 (Transfer Learning) | 0.82 | 
+| ResNet50 (Transfer Learning) | 0.74 | 
+| EfficientNetV2M (Transfer Learning) | 0.73 |
 
-**General Performance Comparison (Based on Model Types):**
-
-Based on common practices in image classification and the nature of the models implemented:
-
-* **Transfer Learning Models (VGG16, ResNet50, EfficientNetV2M):** These models, pre-trained on large datasets like ImageNet, are generally expected to achieve higher accuracy and better generalization on image-based tasks compared to traditional machine learning models or custom CNNs trained from scratch on smaller datasets. Their ability to leverage learned features from vast amounts of image data provides a significant advantage. Among the transfer learning models, EfficientNetV2M, being a more recent and optimized architecture, might potentially offer better performance or efficiency.
-* **Custom CNN:** A custom CNN's performance is highly dependent on its architecture and the size and diversity of the training data. While it can be effective, it may require more data and careful tuning to reach the performance levels of sophisticated pre-trained models on complex image datasets.
-* **Traditional Machine Learning Models (Random Forest, XGBoost):** These models rely on hand-crafted or automatically extracted features (like LBP, HOG, Gabor, Color Histograms, PCA). Their performance is heavily influenced by the quality and relevance of these features. While valuable for understanding feature importance and providing baseline results, they often do not capture the complex hierarchical patterns in images as effectively as deep learning models, potentially leading to lower overall accuracy on raw pixel data or complex feature combinations.
-
-The actual performance observed in the notebooks will provide empirical evidence for how these different approaches fare on the specific architectural styles dataset used in this project. The class imbalance noted in the dataset exploration may particularly impact the precision and recall for minority classes, which should be carefully examined in the classification reports.
+For other measures see the nootbooks
 
 ## Setup and Installation
 
