@@ -4,9 +4,10 @@
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/Seif-Eldin-Omar/Architectural-Styles-Classification)](https://github.com/Seif-Eldin-Omar/Architectural-Styles-Classification)
 ![GitHub Followers](https://img.shields.io/github/followers/Seif-Eldin-Omar?style=social)
 
-## Abstract
+## Project Overview
 
-This project investigates and implements various machine learning and deep learning methodologies for the automated classification of architectural styles from image data. The objective is to build robust models capable of identifying distinct architectural periods and characteristics present in visual content. The repository contains the code and detailed Jupyter notebooks documenting the entire process, from data exploration and preprocessing to the implementation and evaluation of several classification models, including traditional techniques and state-of-the-art deep neural networks.
+This project addresses the challenge of automatically classifying architectural styles from images. By leveraging a dataset of diverse architectural photographs, the project explores and compares the effectiveness of different machine learning and deep learning models for this multi-class classification task. The methodology encompasses comprehensive data preprocessing, including feature extraction for traditional models and image preparation for deep learning, followed by the implementation and evaluation of a range of classifiers, from classical methods like Random Forest and XGBoost to modern deep learning architectures such as a custom CNN, VGG16, ResNet50, and EfficientNetV2M utilizing transfer learning. The goal is to identify promising approaches for accurate architectural style recognition based on visual features.
+
 
 ## Table of Contents
 
