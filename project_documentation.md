@@ -1,177 +1,173 @@
-# Image Classification Project Documentation
+# Architectural Styles Classification
 
-## 1. Ideation and Problem Definition
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) This project aims to classify architectural styles from images using deep learning techniques. It leverages Convolutional Neural Networks (CNNs) to learn distinctive features from various architectural examples and predict their corresponding styles.
 
-### 1.1 Project Overview
-This project aims to develop an image classification system capable of accurately categorizing images into multiple classes. The system leverages both custom and pre-trained deep learning models to achieve high classification accuracy.
+## Table of Contents
 
-### 1.2 Main Challenge
-The primary challenge addressed by this project is the accurate classification of images across multiple categories, particularly in scenarios where:
-- Images may have varying quality and resolution
-- Classes may have significant visual similarities
-- Limited training data is available for some classes
-- Real-world variations in lighting, angle, and background
+- [Overview](#overview)
+- [Project Goal](#project-goal)
+- [Features](#features)
+- [Dataset](#dataset)
+- [Model Architecture](#model-architecture)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+  - [Training the Model](#training-the-model)
+  - [Evaluating the Model](#evaluating-the-model)
+  - [Making Predictions](#making-predictions)
+- [Results](#results)
+- [File Structure](#file-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### 1.3 Target Solution
-The proposed solution combines:
-- Advanced image preprocessing techniques
-- Feature extraction using both traditional and deep learning methods
-- Multiple model architectures (custom CNN and pre-trained models)
-- Comprehensive evaluation metrics
-- Comparative analysis of different approaches
+## Overview
 
-## 2. Dataset Exploration
+*Provide a more detailed overview of your project. What problem does it solve? Why is it interesting or useful? What are the key architectural styles you are focusing on?*
 
-### 2.1 Dataset Overview
-- Source: Custom dataset from `g-images-dataset` directory
-- Format: Images in various formats (JPG, PNG)
-- Classes: Multiple categories (automatically detected during processing)
-- Size: Varies based on the dataset
+For example:
+This project explores the application of deep learning to the domain of architectural design and history. By training a model to recognize diverse architectural styles such as Gothic, Baroque, Modern, Art Deco, etc., this work can serve as a tool for students, architects, or enthusiasts to identify and learn about different building aesthetics.
 
-### 2.2 Data Distribution
-- Training set: 60% of total data
-- Validation set: 20% of total data
-- Test set: 20% of total data
+## Project Goal
 
-### 2.3 Data Characteristics
-- Image resolution: Standardized to 224x224 pixels
-- Color channels: RGB (3 channels)
-- Preprocessing: Normalized to [0,1] range
+*Clearly state the main objective(s) of this project.*
 
-## 3. Data Preprocessing
+Example:
+The primary goal of this project is to develop and evaluate a robust image classification model capable of accurately identifying a predefined set of architectural styles from input images. Secondary goals include exploring different CNN architectures, data augmentation techniques, and achieving a certain performance benchmark (e.g., accuracy, F1-score).
 
-### 3.1 Challenges Encountered
-1. **Image Size Variation**
-   - Solution: Standardized all images to 224x224 pixels
-   - Technique: Bicubic interpolation for resizing
+## Features
 
-2. **Color Space Inconsistency**
-   - Solution: Converted all images to RGB format
-   - Technique: Color space conversion using OpenCV
+*List the key features of your project.*
 
-3. **Data Augmentation**
-   - Implemented techniques:
-     - Random rotation (±20 degrees)
-     - Width and height shifts (±20%)
-     - Horizontal flipping
-     - Normalization
+-   Classification of **[Number]** distinct architectural styles:
+    -   *[Style 1]*
+    -   *[Style 2]*
+    -   *[Style 3]*
+    -   *... (List all styles the model can classify)*
+-   Implementation using **[Primary Deep Learning Framework, e.g., TensorFlow with Keras, PyTorch]**.
+-   Pre-trained model available for inference (if applicable).
+-   Scripts for data preprocessing, model training, evaluation, and prediction.
+-   Visualization of training progress and results (if applicable).
 
-### 3.2 Preprocessing Pipeline
-1. Image loading and validation
-2. Resizing to target dimensions
-3. Color space conversion
-4. Normalization
-5. Data augmentation (training set only)
+## Dataset
 
-## 4. Feature Extraction and Selection
+*Describe the dataset used for training and testing your model. This is a critical section.*
 
-### 4.1 Feature Extraction Methods
-1. **Traditional Features**
-   - HOG (Histogram of Oriented Gradients)
-   - LBP (Local Binary Patterns)
-   - Color histograms
-   - Texture features
+-   **Name of the dataset:** *[e.g., "Architectural Heritage Elements Image Dataset (AHEID)", "Custom Scraped Dataset of Architectural Styles", "A subset of WikiArquitectura"]*
+-   **Source:** *[Provide a link to the dataset if public, or describe how it was collected. e.g., Kaggle, specific research paper, self-scraped from Google Images/Pinterest/Flickr]*
+-   **Description:**
+    -   Total number of images: *[e.g., 10,000 images]*
+    -   Number of classes (styles): *[e.g., 10 styles]*
+    -   Distribution of images per class: *[e.g., Roughly 1000 images per style, or mention if it's imbalanced]*
+    -   Image resolution/format: *[e.g., Varied resolutions, mostly JPG]*
+    -   Any preprocessing steps applied to the dataset before use: *[e.g., resizing, cleaning, manual labeling]*
+-   **Data Split:**
+    -   Training set: *[e.g., 70% of images]*
+    -   Validation set: *[e.g., 15% of images]*
+    -   Test set: *[e.g., 15% of images]*
 
-2. **Deep Learning Features**
-   - Convolutional features from custom CNN
-   - Transfer learning features from pre-trained models
+*If you created a custom dataset or significantly modified an existing one, provide more details on its creation process.*
 
-### 4.2 Feature Selection Results
-- PCA for dimensionality reduction
-- Feature importance analysis
-- Selected features based on mutual information
+## Model Architecture
 
-## 5. Model Framework
+*Detail the neural network architecture used.*
 
-### 5.1 Custom CNN Architecture
-```python
-Model: "sequential"
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-conv2d (Conv2D)              (None, 222, 222, 32)      896       
-batch_normalization (BatchNo (None, 222, 222, 32)      128       
-max_pooling2d (MaxPooling2D) (None, 111, 111, 32)      0         
-dropout (Dropout)            (None, 111, 111, 32)      0         
-...
-dense (Dense)                (None, num_classes)        num_classes
-=================================================================
-```
+-   **Base Model:** *[e.g., Custom CNN, ResNet50, VGG16, InceptionV3, EfficientNet, etc.]*
+-   **Modifications (if any):** *[e.g., Added custom top layers, used transfer learning with fine-tuning, changed specific layers]*
+-   **Key Layers and Components:**
+    -   Convolutional layers (number, filter sizes, activation functions like ReLU)
+    -   Pooling layers (type, e.g., MaxPooling, AveragePooling)
+    -   Dropout layers (rate, for regularization)
+    -   Batch Normalization layers
+    -   Fully Connected (Dense) layers
+    -   Output layer (activation function, e.g., Softmax for multi-class classification)
+-   **Optimizer:** *[e.g., Adam, SGD, RMSprop] with learning rate *[e.g., 0.001]*
+-   **Loss Function:** *[e.g., Categorical Crossentropy, Sparse Categorical Crossentropy]*
+-   **Metrics Tracked:** *[e.g., Accuracy, Precision, Recall, F1-score, Confusion Matrix]*
 
-### 5.2 Pre-trained Models
-1. **ResNet50**
-   - Base model: ResNet50 with ImageNet weights
-   - Custom head: GlobalAveragePooling + Dense layers
+*You can include a diagram of the model architecture if you have one (e.g., generated by `model.summary()` in Keras and saved as an image).*
+```markdown
+![Model Architecture](assets/model_architecture.png) ```
 
-2. **VGG16**
-   - Base model: VGG16 with ImageNet weights
-   - Custom head: GlobalAveragePooling + Dense layers
+## Technologies Used
 
-3. **EfficientNetB0**
-   - Base model: EfficientNetB0 with ImageNet weights
-   - Custom head: GlobalAveragePooling + Dense layers
+*List all major libraries, frameworks, and tools used in your project.*
 
-## 6. Results and Analysis
+-   **Programming Language:** Python ([Version, e.g., 3.8+])
+-   **Deep Learning Framework:** [e.g., TensorFlow (2.x), Keras, PyTorch (1.x)]
+-   **Core Libraries:**
+    -   NumPy: For numerical operations
+    -   Pandas: For data manipulation (if used for dataset handling)
+    -   Matplotlib / Seaborn: For plotting and visualizations
+    -   Scikit-learn: For evaluation metrics, data splitting
+    -   OpenCV (cv2): For image processing tasks
+-   **Environment:** [e.g., Jupyter Notebooks, Google Colab, Local IDE (VS Code, PyCharm)]
+-   **Other tools:** [e.g., Git, DVC (for data versioning)]
 
-### 6.1 Evaluation Metrics
-1. **Overall Metrics**
-   - Accuracy
-   - Precision
-   - Recall
-   - F1 Score
+## Setup and Installation
 
-2. **Per-class Metrics**
-   - Confusion matrices
-   - Classification reports
-   - ROC curves (if applicable)
+*Provide clear, step-by-step instructions on how to set up the project environment and install dependencies.*
 
-### 6.2 Model Comparison
-- Performance comparison across models
-- Training time analysis
-- Resource utilization
-- Generalization capability
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://www.google.com/search?q=https://github.com/Seif-Eldin-Omar/Architectural-Styles-Classification.git](https://www.google.com/search?q=https://github.com/Seif-Eldin-Omar/Architectural-Styles-Classification.git)
+    cd Architectural-Styles-Classification
+    ```
 
-### 6.3 Key Findings
-1. **Model Performance**
-   - Best performing model: [To be filled after training]
-   - Average accuracy: [To be filled after training]
-   - Class-wise performance variations
+2.  **Create a virtual environment (recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-2. **Training Insights**
-   - Convergence patterns
-   - Overfitting prevention
-   - Learning rate optimization
+3.  **Install dependencies:**
+    *If you have a `requirements.txt` file (highly recommended):*
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *If not, list the main packages to install manually:*
+    ```bash
+    pip install tensorflow numpy pandas matplotlib scikit-learn opencv-python  # Add other necessary packages
+    ```
 
-3. **Practical Considerations**
-   - Inference speed
-   - Model size
-   - Deployment feasibility
+4.  **Download the Dataset:**
+    *Provide instructions here. This might involve:*
+    -   Running a script: `python download_dataset.py`
+    -   Manual download link: "Download the dataset from [Link] and extract it to the `./data/` directory."
+    -   If using Kaggle API: `kaggle datasets download -d USERNAME/DATASET_NAME -p ./data/ --unzip`
 
-## 7. Future Improvements
+5.  **Directory Structure:**
+    *Briefly explain the expected directory structure, especially for data if it's not automatically created.*
+    ```
+    Architectural-Styles-Classification/
+    ├── data/
+    │   ├── train/
+    │   │   ├── style1/
+    │   │   └── style2/
+    │   ├── validation/
+    │   └── test/
+    ├── notebooks/  # or scripts/
+    │   ├── 01_data_preprocessing.ipynb
+    │   ├── 02_model_training.ipynb
+    │   └── 03_model_evaluation.ipynb
+    ├── src/  # if you have .py modules
+    │   ├── model.py
+    │   └── utils.py
+    ├── models/  # for saved model files
+    │   └── architectural_style_classifier.h5
+    ├── requirements.txt
+    └── README.md
+    ```
 
-### 7.1 Model Enhancements
-- Fine-tuning of pre-trained models
-- Architecture optimization
-- Hyperparameter tuning
+## Usage
 
-### 7.2 Data Improvements
-- Additional data collection
-- Advanced augmentation techniques
-- Class balancing
+*Explain how to run your scripts or notebooks to train the model, evaluate it, and make predictions.*
 
-### 7.3 Deployment Considerations
-- Model quantization
-- API development
-- Integration with existing systems
+### Training the Model
 
-## 8. Conclusion
-
-This project successfully implements a comprehensive image classification system using multiple deep learning approaches. The combination of custom and pre-trained models provides flexibility and robustness in handling various image classification tasks. The detailed evaluation metrics and comparative analysis offer valuable insights for model selection and optimization.
-
-## 9. References
-
-1. Deep Learning for Computer Vision
-2. Transfer Learning in Deep Neural Networks
-3. Image Classification Best Practices
-4. TensorFlow Documentation
-5. Scikit-learn Documentation 
+*Provide the command or steps to start the training process.*
+Example:
+"To train the model, run the `02_model_training.ipynb` Jupyter Notebook or execute the training script:"
+```bash
+python train_model.py --data_dir ./data/ --epochs 50 --batch_size 32
