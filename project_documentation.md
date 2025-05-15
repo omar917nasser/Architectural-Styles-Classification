@@ -6,8 +6,11 @@
 
 ## Project Overview
 
-This project addresses the challenge of automatically classifying architectural styles from images. By leveraging a dataset of diverse architectural photographs, the project explores and compares the effectiveness of different machine learning and deep learning models for this multi-class classification task. The methodology encompasses comprehensive data preprocessing, including feature extraction for traditional models and image preparation for deep learning, followed by the implementation and evaluation of a range of classifiers, from classical methods like Random Forest and XGBoost to modern deep learning architectures such as a custom CNN, VGG16, ResNet50, and EfficientNetV2M utilizing transfer learning. The goal is to identify promising approaches for accurate architectural style recognition based on visual features.
+This project addresses the challenging problem of automatically classifying architectural styles from visual data. We present a comprehensive approach that explores and contrasts the effectiveness of different machine learning paradigms for this task. The core of the project involves:
 
+-   Utilizing a curated dataset of architectural images spanning multiple styles.
+-   Implementing robust data preprocessing and feature engineering techniques.
+-   Developing and evaluating a suite of classification models, encompassing both traditional methods like Random Forest and XGBoost, and advanced deep learning architectures, including a custom CNN and transfer learning with prominent models such as VGG16, ResNet50, and EfficientNetV2M.
 
 ## Table of Contents
 
